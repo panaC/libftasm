@@ -1,3 +1,9 @@
+
+.DS_STORE
+.*.*~
+.*.swp
+test
+
 # Prerequisites
 *.d
 
