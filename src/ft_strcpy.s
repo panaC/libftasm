@@ -1,5 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strcpy.s                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/11/10 15:55:45 by pleroux           #+#    #+#              #
+#    Updated: 2019/11/10 21:45:56 by pleroux          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 ; char  *ft_strcpy(char *dest, const char *src)
+; first version
+; they're a version with fewer opcode when you call strlen and rep movsb
 
 segment .data ; initialized data
 

@@ -1,30 +1,34 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_bzero.s                                         :+:      :+:    :+:    #
+#    ft_strlen.s                                        :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/11/10 15:52:42 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/10 21:27:19 by pleroux          ###   ########.fr        #
+#    Created: 2019/11/10 21:27:11 by pleroux           #+#    #+#              #
+#    Updated: 2019/11/10 22:15:56 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-; void  ft_bzero(void *s, size_t n)
+; size_t		ft_strlen(const char *s)
 
 segment .data ; initialized data
 
-segment .bss ; uninitialized data
+segment .bss ; unitialized data
 
 segment .text
-		global _ft_bzero
+		global _ft_strlen
 
-_ft_bzero:
+%define SIZE_MAX		0xFFFFFfFFF
+%define SIZE_MAX_MINUS	SIZE_MAX - 1
+
+_ft_strlen:
 		enter			0, 0
-		cld							; clear DF
-		mov				rcx, rsi	; assign n to the stosb counter
-		xor				rax, rax	; set the value to 0
-		rep				stosb		; store 0 while rcx > 0
+		cld
+		mov				rcx, SIZE_MAX
+		mov				al, 0					; rax = 0
+		repnz			scasb
+		mov				rax, SIZE_MAX_MINUS
+		sub				rax, rcx
 		leave
 		ret
-	

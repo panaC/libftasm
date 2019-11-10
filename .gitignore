@@ -3,6 +3,7 @@
 .*.*~
 .*.swp
 test
+a.out
 
 # Prerequisites
 *.d
