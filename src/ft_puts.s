@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 17:40:05 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/11 18:00:56 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/11 18:03:12 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,13 +38,19 @@ _ft_puts:
 		mov				rdx, r9
 		mov				rax, SYSCALL(WRITE)
 		syscall
+		cmp				rax, -1
+		je				return
 
 		mov				rdi, STDOUT
 		mov				rsi, eol
 		mov				rdx, 1
 		mov				rax, SYSCALL(WRITE)
 		syscall
+		cmp				rax, -1
+		je				return
 
 		mov				rax, 10
+
+return:
 		leave
 		ret
