@@ -54,7 +54,8 @@ int		strlen_test_01(void)
 {
 	printf("strlen_test_01\n");
 	printf("%ld|%ld\n", ft_strlen(STR1), strlen(STR1));
-	_assert(ft_strlen(STR1) == strlen(STR1));
+	_assert(ft_strlen(STR1) ==
+			strlen(STR1));
 	printf("%ld|%ld\n", ft_strlen(STR2), strlen(STR2));
 	_assert(ft_strlen(STR2) == strlen(STR2));
 	printf("%ld|%ld\n", ft_strlen(STR3), strlen(STR3));
@@ -103,6 +104,141 @@ int		strcat_test_01(void)
 	return 0;
 }
 
+int		toupper_test_01(void)
+{
+	printf("toupper_test_01\n");
+	_assert(ft_toupper('a') == 'A');
+	_assert(ft_toupper('z') == 'Z');
+	_assert(ft_toupper(-12344353) == -12344353);
+	_assert(ft_toupper(12344353) == 12344353);
+	_assert(ft_toupper(97) == 65);
+	_assert(ft_toupper(122) == 90);
+	_assert(ft_toupper(96) == 96);
+	_assert(ft_toupper(123) == 123);
+	printf("end\n");
+	return 0;
+}
+
+int		tolower_test_01(void)
+{
+	printf("tolower_test_01\n");
+	_assert(ft_tolower('A') == 'a');
+	_assert(ft_tolower('Z') == 'z');
+	_assert(ft_tolower(-12344353) == -12344353);
+	_assert(ft_tolower(12344353) == 12344353);
+	_assert(ft_tolower(65) == 97);
+	_assert(ft_tolower(90) == 122);
+	_assert(ft_tolower(64) == 64);
+	_assert(ft_tolower(91) == 91);
+	printf("end\n");
+	return 0;
+}
+
+int		isalnum_test_01(void)
+{
+	printf("isalnum_test_01\n");
+	_assert(ft_isalnum('a') == 1);
+	_assert(ft_isalnum('Z') == 1);
+	_assert(ft_isalnum(-12344353) == 0);
+	_assert(ft_isalnum(12344353) == 0);
+	_assert(ft_isalnum(65) == 1);
+	_assert(ft_isalnum(90) == 1);
+	_assert(ft_isalnum(64) == 0);
+	_assert(ft_isalnum(91) == 0);
+	_assert(ft_isalnum('0') == 1);
+	_assert(ft_isalnum('9') == 1);
+	printf("end\n");
+	return 0;
+}
+
+int		isalpha_test_01(void)
+{
+	printf("isalpha_test_01\n");
+	_assert(ft_isalpha('a') == 1);
+	_assert(ft_isalpha('Z') == 1);
+	_assert(ft_isalpha(-12344353) == 0);
+	_assert(ft_isalpha(12344353) == 0);
+	_assert(ft_isalpha(65) == 1);
+	_assert(ft_isalpha(90) == 1);
+	_assert(ft_isalpha('0') == 0);
+	_assert(ft_isalpha('9') == 0);
+	printf("end\n");
+	return 0;
+}
+
+int		isascii_test_01(void)
+{
+	printf("isascii_test_01\n");
+	_assert(ft_isascii('a') == 1);
+	_assert(ft_isascii('Z') == 1);
+	_assert(ft_isascii(-12344353) == 0);
+	_assert(ft_isascii(12344353) == 0);
+	_assert(ft_isascii(65) == 1);
+	_assert(ft_isascii(90) == 1);
+	_assert(ft_isascii('0') == 1);
+	_assert(ft_isascii('9') == 1);
+	printf("end\n");
+	return 0;
+}
+
+int		isdigit_test_01(void)
+{
+	printf("isdigit_test_01\n");
+	_assert(ft_isdigit('a') == 0);
+	_assert(ft_isdigit('Z') == 0);
+	_assert(ft_isdigit(-12344353) == 0);
+	_assert(ft_isdigit(12344353) == 0);
+	_assert(ft_isdigit(47) == 0);
+	_assert(ft_isdigit(58) == 0);
+	_assert(ft_isdigit('0') == 1);
+	_assert(ft_isdigit('9') == 1);
+	printf("end\n");
+	return 0;
+}
+
+int		islower_test_01(void)
+{
+	printf("isdigit_test_01\n");
+	_assert(ft_islower('a') == 1);
+	_assert(ft_islower('Z') == 0);
+	_assert(ft_islower(-12344353) == 0);
+	_assert(ft_islower(12344353) == 0);
+	_assert(ft_islower(96) == 0);
+	_assert(ft_islower(123) == 0);
+	_assert(ft_islower('0') == 0);
+	_assert(ft_islower('9') == 0);
+	printf("end\n");
+	return 0;
+}
+
+int		isprint_test_01(void)
+{
+	printf("isdigit_test_01\n");
+	_assert(ft_isprint('a') == 1);
+	_assert(ft_isprint('Z') == 1);
+	_assert(ft_isprint(-12344353) == 0);
+	_assert(ft_isprint(12344353) == 0);
+	_assert(ft_isprint(31) == 0);
+	_assert(ft_isprint(127) == 0);
+	printf("end\n");
+	return 0;
+}
+
+int		isupper_test_01(void)
+{
+	printf("isdigit_test_01\n");
+	_assert(ft_isupper('a') == 0);
+	_assert(ft_isupper('Z') == 1);
+	_assert(ft_isupper(-12344353) == 0);
+	_assert(ft_isupper(12344353) == 0);
+	_assert(ft_isupper(64) == 0);
+	_assert(ft_isupper(91) == 0);
+	_assert(ft_isupper('0') == 0);
+	_assert(ft_isupper('9') == 0);
+	printf("end\n");
+	return 0;
+}
+
 int		all_tests(void)
 {
 	_verify(bzero_test_01);
@@ -110,6 +246,15 @@ int		all_tests(void)
 	_verify(strlen_test_01);
 	_verify(strcpy_test_01);
 	_verify(strcat_test_01);
+	_verify(toupper_test_01);
+	_verify(tolower_test_01);
+	_verify(isalnum_test_01);
+	_verify(isalpha_test_01);
+	_verify(isascii_test_01);
+	_verify(isdigit_test_01);
+	_verify(islower_test_01);
+	_verify(isprint_test_01);
+	_verify(isupper_test_01);
 	return 0;
 }
 

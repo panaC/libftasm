@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 16:01:44 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/10 22:09:10 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/11 17:08:03 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,16 @@ SRC_FILE	= ft_bzero.s \
 			  ft_strcpy.s \
 			  ft_strlen.s \
 			  ft_strcat.s \
+			  ft_toupper.s \
+			  ft_tolower.s \
+			  ft_isalnum.s \
+			  ft_isalpha.s \
+			  ft_isascii.s \
+			  ft_isdigit.s \
+			  ft_islower.s \
+			  ft_isprint.s \
+			  ft_isupper.s \
+
 
 SRC			= $(addprefix $(SRC_DIR), $(SRC_FILE))
 OBJ			= $(addprefix $(OBJ_DIR)/,$(SRC_FILE:.s=.o))
