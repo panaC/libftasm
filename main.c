@@ -331,6 +331,21 @@ int		strdup_test_01(void)
 	return 0;
 }
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+int		cat_test_01(void)
+{
+	printf("cat_test_01\n");
+
+	ft_cat(open("src/ft_bzero.s", O_RDONLY));
+	ft_cat(open("/dev/stdin", O_RDONLY));
+
+	printf("end\n");
+	return 0;
+}
+
 int		all_tests(void)
 {
 	_verify(bzero_test_01);
@@ -351,6 +366,7 @@ int		all_tests(void)
 	_verify(memset_test_01);
 	_verify(memcpy_test_01);
 	_verify(strdup_test_01);
+	_verify(cat_test_01);
 	return 0;
 }
 

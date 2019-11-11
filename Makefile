@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 16:01:44 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/11 20:06:54 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/11 23:02:40 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRC_FILE	= ft_bzero.s \
 			  ft_memset.s \
 			  ft_memcpy.s \
 			  ft_strdup.s \
+			  ft_cat.s \
 
 
 SRC			= $(addprefix $(SRC_DIR), $(SRC_FILE))
