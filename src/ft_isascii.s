@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 16:13:52 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/11 16:19:56 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/11 23:29:28 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ segment .text
 		global _ft_isascii
 
 %define MIN				0
-%define MAX				128
+%define MAX				127
 %define TRUE			1
 %define FALSE			0
 

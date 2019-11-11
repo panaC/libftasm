@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 16:01:44 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/11 23:02:40 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/11 23:25:59 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,13 +57,13 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 clean	:
-	rm -rf $(OBJ) $(TEST) $(NAME)
+	rm -rf $(OBJ) $(TEST) main.o
 	rm -rf $(OBJ_DIR)
 
 fclean	: clean
 	rm -f $(NAME) $(TEST)
 
-re		: clean all
+re		: fclean all
 
 test: $(OBJ_DIR) $(NAME)
 	$(CC) -c main.c -o main.o

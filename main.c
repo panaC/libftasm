@@ -175,6 +175,8 @@ int		isascii_test_01(void)
 	_assert(ft_isascii(12344353) == 0);
 	_assert(ft_isascii(65) == 1);
 	_assert(ft_isascii(90) == 1);
+	_assert(ft_isascii(-1) == 0);
+	_assert(ft_isascii(128) == 0);
 	_assert(ft_isascii('0') == 1);
 	_assert(ft_isascii('9') == 1);
 	printf("end\n");
@@ -341,6 +343,7 @@ int		cat_test_01(void)
 
 	ft_cat(open("src/ft_bzero.s", O_RDONLY));
 	ft_cat(open("/dev/stdin", O_RDONLY));
+	ft_cat(open("/Users/pleroux/42FileChecker/srcs/libftasm/ft_cat.txt", O_RDONLY));
 
 	printf("end\n");
 	return 0;
