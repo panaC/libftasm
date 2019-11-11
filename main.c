@@ -70,10 +70,10 @@ int		strcat_test_01(void)
 	char* ptrR;
 	char* ptrL;
 
-	printf("strcpy_test_01\n");
+	printf("strcat_test_01\n");
 	strcpy(strR, STR1);
 	strcpy(strL, STR1);
-	/*ptrR = strcat(strR, STR1);
+	ptrR = strcat(strR, STR1);
 	ptrL = ft_strcat(strL, STR1);
 	printf(">%s|%s<\n", ptrR, ptrL);
 	_assert(strcmp(ptrR, ptrL) == 0);
@@ -85,7 +85,6 @@ int		strcat_test_01(void)
 	ptrL = ft_strcat(strL, STR3);
 	printf(">%s|%s<\n", ptrR, ptrL);
 	_assert(strcmp(ptrR, ptrL) == 0);
-*/
 	strcpy(strR, STR3);
 	strcpy(strL, STR3);
 	ptrR = strcat(strR, STR3);
@@ -109,8 +108,8 @@ int		all_tests(void)
 	_verify(bzero_test_01);
 	_verify(strcpy_test_01);
 	_verify(strlen_test_01);
-	_verify(strcat_test_01);
 	_verify(strcpy_test_01);
+	_verify(strcat_test_01);
 	return 0;
 }
 
