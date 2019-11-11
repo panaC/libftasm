@@ -198,7 +198,7 @@ int		isdigit_test_01(void)
 
 int		islower_test_01(void)
 {
-	printf("isdigit_test_01\n");
+	printf("islower_test_01\n");
 	_assert(ft_islower('a') == 1);
 	_assert(ft_islower('Z') == 0);
 	_assert(ft_islower(-12344353) == 0);
@@ -213,7 +213,7 @@ int		islower_test_01(void)
 
 int		isprint_test_01(void)
 {
-	printf("isdigit_test_01\n");
+	printf("isprint_test_01\n");
 	_assert(ft_isprint('a') == 1);
 	_assert(ft_isprint('Z') == 1);
 	_assert(ft_isprint(-12344353) == 0);
@@ -226,7 +226,7 @@ int		isprint_test_01(void)
 
 int		isupper_test_01(void)
 {
-	printf("isdigit_test_01\n");
+	printf("isupper_test_01\n");
 	_assert(ft_isupper('a') == 0);
 	_assert(ft_isupper('Z') == 1);
 	_assert(ft_isupper(-12344353) == 0);
@@ -235,6 +235,33 @@ int		isupper_test_01(void)
 	_assert(ft_isupper(91) == 0);
 	_assert(ft_isupper('0') == 0);
 	_assert(ft_isupper('9') == 0);
+	printf("end\n");
+	return 0;
+}
+
+int		puts_test_01(void)
+{
+	printf("puts_test_01\n");
+	int retL;
+	int retR;
+
+	retL = puts(HELLO);
+	retR = ft_puts(HELLO);
+	printf("%d|%d\n", retL,retR);
+	_assert(retL == retR);
+
+	retL = puts("");
+	retR = ft_puts("");
+	printf("%d|%d\n", retL,retR);
+	_assert(retL == retR);
+
+	/*
+	// segv on puts
+	retL = puts(NULL);
+	retR = ft_puts(NULL);
+	printf("%d|%d\n", retL,retR);
+	_assert(retL == retR);
+	*/
 	printf("end\n");
 	return 0;
 }
@@ -255,6 +282,7 @@ int		all_tests(void)
 	_verify(islower_test_01);
 	_verify(isprint_test_01);
 	_verify(isupper_test_01);
+	_verify(puts_test_01);
 	return 0;
 }
 
