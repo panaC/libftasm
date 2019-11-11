@@ -266,6 +266,71 @@ int		puts_test_01(void)
 	return 0;
 }
 
+int		memset_test_01(void)
+{
+	printf("memset_test_01\n");
+
+	void* strR = malloc(100);
+	void* strL = malloc(100);
+
+	void* ptrR;
+	void* ptrL;
+
+	ptrR = ft_memset(strR, 'R', 100);
+	ptrL = memset(strL, 'R', 100);
+	_assert(strncmp(ptrR, ptrL, 100) == 0);
+
+	ptrR = ft_memset(strR, 'R', 0);
+	ptrL = memset(strL, 'R', (0));
+	_assert(strncmp(ptrR, ptrL, 0) == 0);
+
+	printf("end\n");
+	return 0;
+}
+
+int		memcpy_test_01(void)
+{
+	printf("memcpy_test_01\n");
+
+	void* strR = malloc(100);
+	void* strL = malloc(100);
+
+	void* ptrR;
+	void* ptrL;
+
+	ptrR = ft_memcpy(strR, HELLO, HELLO_N);
+	ptrL = memcpy(strL, HELLO, HELLO_N);
+	_assert(strncmp(ptrR, ptrL, HELLO_N) == 0);
+
+	ptrR = ft_memcpy(strR, HELLO, 0);
+	ptrL = memcpy(strL, HELLO, (0));
+	_assert(strncmp(ptrR, ptrL, 0) == 0);
+
+	printf("end\n");
+	return 0;
+}
+
+	#include <signal.h>
+
+int		strdup_test_01(void)
+{
+	printf("strdup_test_01\n");
+
+	void* ptr;
+
+	ptr = ft_strdup(HELLO);
+	printf("ptr: %p\n", ptr);
+	printf(">%s|%s<\n", ptr, HELLO);
+	_assert(strcmp(ptr, HELLO) == 0);
+
+	ptr = ft_strdup("");
+	printf(">%s|%s<\n", ptr, "");
+	_assert(strcmp(ptr, "") == 0);
+
+	printf("end\n");
+	return 0;
+}
+
 int		all_tests(void)
 {
 	_verify(bzero_test_01);
@@ -283,6 +348,9 @@ int		all_tests(void)
 	_verify(isprint_test_01);
 	_verify(isupper_test_01);
 	_verify(puts_test_01);
+	_verify(memset_test_01);
+	_verify(memcpy_test_01);
+	_verify(strdup_test_01);
 	return 0;
 }
 
