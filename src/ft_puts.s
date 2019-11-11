@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 17:40:05 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/11 18:03:12 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/11 18:04:16 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ _ft_puts:
 		mov				rdx, r9
 		mov				rax, SYSCALL(WRITE)
 		syscall
-		cmp				rax, -1
+		cmp				rax, -1			; if write has failed return
 		je				return
 
 		mov				rdi, STDOUT
@@ -49,7 +49,7 @@ _ft_puts:
 		cmp				rax, -1
 		je				return
 
-		mov				rax, 10
+		mov				rax, 10			; values return by puts
 
 return:
 		leave
