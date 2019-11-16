@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 21:52:25 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/11 23:05:43 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/16 15:10:22 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ segment .text
 		extern _malloc
 
 _ft_cat:
-		enter			16, 0			; save rsp to pick up 2 bytes
+		enter			8, 0			; save rsp to pick up 2 bytes
 		push			rdi				; save in stack fd
 
 		mov				rdi, SIZE		; malloc 1000 bytes
