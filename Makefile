@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 16:01:44 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/11 23:25:59 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/16 15:03:59 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,8 +66,7 @@ fclean	: clean
 re		: fclean all
 
 test: $(OBJ_DIR) $(NAME)
-	$(CC) -c main.c -o main.o
-	$(CC) $(CFLAGS) -o $(TEST) $(OBJ) main.o
+	$(CC) $(CFLAGS) main.c $(NAME) -o $(TEST)
 	./test
 
 .PHONY	: all clean re fclean test
