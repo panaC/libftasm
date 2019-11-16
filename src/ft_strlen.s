@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/10 21:27:11 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/10 22:15:56 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/16 14:58:35 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ segment .bss ; unitialized data
 segment .text
 		global _ft_strlen
 
-%define SIZE_MAX		0xFFFFFfFFF
+%define SIZE_MAX		0xFFFFFFFFF
 %define SIZE_MAX_MINUS	SIZE_MAX - 1
 
 _ft_strlen:
