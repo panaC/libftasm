@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 21:52:25 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/29 17:58:11 by pleroux          ###   ########.fr        #
+;    Updated: 2019/11/29 18:26:44 by pleroux          ###   ########.fr        ;
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,19 +25,12 @@ segment .bss ; unitialized data
 
 segment .text
 		global _ft_cat
-;		extern _malloc
 
 _ft_cat:
-		enter			STACK, 0		; save rsp to pick up 2 bytes
+		enter			STACK, 0		; save rsp to pick up STACK bytes
 		mov				r8, rdi			; save in stack fd
-
-;		mov				rdi, SIZE		; malloc 1000 bytes
-;		call			_malloc
-;		test			rax, rax
-;		je				return
-;
-;		pop				r8				; save data before loop, r8 = fd
-;		mov				r9, rax			; save malloc ptr in r9
+		cmp				r8d, 0
+		jl				return
 
 read:
 		mov				rdi, r8			; read SIZE bytes to r9
@@ -45,8 +38,8 @@ read:
 		mov				rdx, SIZE
 		mov				rax, SYSCALL(READ)
 		syscall
-		cmp				rax, -1
-		je				return			; jump to return if read return == -1
+		cmp				rax, 0
+		jle				return			; jump to return if read return == -1
 		mov				r10, rax		; save the number of byte read
 
 write:
@@ -55,12 +48,8 @@ write:
 		mov				rdx, r10
 		mov				rax, SYSCALL(WRITE)
 		syscall
-		cmp				rax, -1
-		je				return
-
-eof:
-		cmp				r10, 0			; if number of byte read == SIZE
-		jg				read			;    jump to read
+		cmp				rax, 0
+		jg				read
 
 return:
 		leave
