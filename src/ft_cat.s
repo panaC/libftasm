@@ -6,7 +6,7 @@
 #    By: pleroux <pleroux@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 21:52:25 by pleroux           #+#    #+#              #
-#    Updated: 2019/11/28 18:16:46 by pleroux          ###   ########.fr        #
+#    Updated: 2019/11/29 17:58:11 by pleroux          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ segment .text
 _ft_cat:
 		enter			STACK, 0		; save rsp to pick up 2 bytes
 		mov				r8, rdi			; save in stack fd
-		mov				r9, rbp
 
 ;		mov				rdi, SIZE		; malloc 1000 bytes
 ;		call			_malloc
@@ -42,7 +41,7 @@ _ft_cat:
 
 read:
 		mov				rdi, r8			; read SIZE bytes to r9
-		mov				rsi, r9
+		mov				rsi, rsp
 		mov				rdx, SIZE
 		mov				rax, SYSCALL(READ)
 		syscall
@@ -52,7 +51,7 @@ read:
 
 write:
 		mov				rdi, STDOUT		; write r10 byte read by 'read'
-		mov				rsi, r9
+		mov				rsi, rsp
 		mov				rdx, r10
 		mov				rax, SYSCALL(WRITE)
 		syscall
@@ -60,8 +59,8 @@ write:
 		je				return
 
 eof:
-		cmp				r10, SIZE		; if number of byte read == SIZE
-		je				read			;    jump to read
+		cmp				r10, 0			; if number of byte read == SIZE
+		jg				read			;    jump to read
 
 return:
 		leave
